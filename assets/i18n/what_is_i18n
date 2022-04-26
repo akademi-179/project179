@@ -1,0 +1,4 @@
+Uygulamadaki textlerin indirilen bölgenin dilinde gösterilmesi
+Bunun için sunulacak her dil için ayrı bir json dosyası oluşturulur ve
+O dilde gösterilecek textleri barındırır.
+https://docs.flutter.dev/development/accessibility-and-localization/internationalization
