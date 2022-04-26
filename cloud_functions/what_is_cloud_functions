@@ -1,0 +1,2 @@
+Cloud functions are the back-end code is stored on some servers such as Google Cloud, these functions run when some specific event happens.
+- We may use Firebase functions if we need
