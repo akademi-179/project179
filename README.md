@@ -8,11 +8,11 @@ OUA bitirme projesi - temporary description
 
 ## Takım Elemanları
 
-- John Doe: Product Owner
-- Jane Doe: Scrum Master
-- Atıl Samancıoğlu: Team Member/Developer
-- Atıl Samancıoğlu: Team Member/Developer
-- Atıl Samancıoğlu: Team Member/Developer
+- Aysu Sarıkaya: Product Owner
+- Şevval Koç: Scrum Master
+- Alper Gökçe Acar: UI Designer/Developer
+- Ece Saygut: Developer
+- Orçun Selbasan: Developer
 
 ## Ürün İsmi
 
