@@ -1,15 +1,12 @@
 **Takım İsmi**
-======
 
 Takım X
 
 # Ürün İle İlgili Bilgiler
-======
 
 OUA bitirme projesi - temporary description
 
 ## Takım Elemanları
-======
 
 - John Doe: Product Owner
 - Jane Doe: Scrum Master
@@ -18,17 +15,14 @@ OUA bitirme projesi - temporary description
 - Atıl Samancıoğlu: Team Member/Developer
 
 ## Ürün İsmi
-======
 
 --Movie App project179 -- 
 
 ## Ürün Açıklaması
-======
 
 - Movie App uygulamamız ile insanların izlemek istediği filmlere ve dizilere daha kolay karar vermesini sağlayacağız. İçerisinde binlerce filmi barındıran uygulamamız aynı zamanda Netflix, Prime vb. platformlarda yayınlanıp yayınlanmadığını ve IMDB puanlarını da gösterecek.
 
 ## Ürün Özellikleri
-======
 
 - Filmleri türüne göre ayırma
 - Filmlerin yönetmen, aktör, aktris vb. bilgilerini posteriyle birlikte gösterme
@@ -36,7 +30,6 @@ OUA bitirme projesi - temporary description
 - Netflix'te ve Prime'da bulunurluğunu gösterme
 
 ## Hedef Kitle
-======
 
 - Netflix kullanıcıları
 - Prime kullanıcıları
@@ -45,13 +38,11 @@ OUA bitirme projesi - temporary description
 - 15 - 65 yaş arası kullanıcılar
 
 ## Product Backlog URL
-======
 
 [Miro Backlog Board](https://miro.com/app/board/uXjVOSSCpsI=/)
 
 
 # Sprint 1
-======
 
 - **Sprint Notları**: User Story'ler product backlog'ların içine yazılmıştır. Product backlog item'lara tıklandığında hikayelerin detayları okunabilir.
 
@@ -86,7 +77,5 @@ Alınan kararlar: Veritabanı oluşturması email ile toplanacak veriler için g
 - N/A
 
 # Sprint 2
-======
 
 # Sprint 3
-======
