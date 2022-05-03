@@ -1,10 +1,8 @@
 **Takım İsmi**
 
-Takım X
+Takım 179
 
 # Ürün İle İlgili Bilgiler
-
-OUA bitirme projesi - temporary description
 
 ## Takım Elemanları
 
@@ -16,30 +14,32 @@ OUA bitirme projesi - temporary description
 
 ## Ürün İsmi
 
---Movie App project179 -- 
+--project179 -- 
 
 ## Ürün Açıklaması
 
-- Movie App uygulamamız ile insanların izlemek istediği filmlere ve dizilere daha kolay karar vermesini sağlayacağız. İçerisinde binlerce filmi barındıran uygulamamız aynı zamanda Netflix, Prime vb. platformlarda yayınlanıp yayınlanmadığını ve IMDB puanlarını da gösterecek.
+- Profesyonel olan veya olmak isteyen oyuncuların e-spor kariyer imkanlarına ulaşabildikleri, takımların aradıkları yetenekleri bulabildikleri ve sponsorları ulaşabildikleri bir platform yapıyoruz. Bütün oyuncuların oyun fark etmeksizin biribirleriyle iletişime geçebileceği, iddialı oldukları oyunlardaki başarılarını sergileyebilecekleri, takip ettikleri sponsorların/takımların/oyuncuların bir araya gelebildikleri sosyal medya uygulamasıdır.
 
 ## Ürün Özellikleri
 
-- Filmleri türüne göre ayırma
-- Filmlerin yönetmen, aktör, aktris vb. bilgilerini posteriyle birlikte gösterme
-- IMDB ve Rotten Tomatoes puanlarını gösterme
-- Netflix'te ve Prime'da bulunurluğunu gösterme
+- Amatör ve profesyonel e-spor oyuncularının profil oluşturabilmesi
+- Oyuncuların birbirleri ve sponsorlar ile iletişime geçebilmesi
+- Takım sayfası oluşturulabilme ve görüntülenebilmesi
+- Sektöre ilişkin güncel haber ve gelişmelerin (turnuva vs.) paylaşılabildiği sayfa oluşturulması
+- Oyuncuların turnuva ilanlarına ulaşıp katılabilmesi 
+- Amatör oyuncu ve takipçilerin, profesyonel oyunculara abone olabilmesi ve (profesyonel e-sporcunun vaad ettiği) imkanlara kavuşabilmesi (kendisi ile iletişime geçme, arkadaş ortamında oyuna davet etme) gibi
 
 ## Hedef Kitle
 
-- Netflix kullanıcıları
-- Prime kullanıcıları
-- Sinema severler
-- Dizi severler
-- 15 - 65 yaş arası kullanıcılar
+- Profesyonel ve amatör E-spor oyuncuları
+- E-spor takipçileri
+- E-spor takımları
+- Sponsorlar
+
 
 ## Product Backlog URL
 
-[Miro Backlog Board](https://miro.com/app/board/uXjVOSSCpsI=/)
+[Miro Backlog Board](https://miro.com/app/board/uXjVO5Z7ztY=/?share_link_id=284020886632)
 
 
 # Sprint 1
