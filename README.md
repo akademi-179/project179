@@ -49,21 +49,22 @@ Takım 179
 - **Sprint içinde tamamlanması tahmin edilen puan**: 50 Puan
 - **Sprint içinde tamamladığımız puan**: 35 Puan
 
-- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 350 puanlık backlog bulunmaktadır. 6 sprint'e bölündüğünde ilk sprintte 35 puan tamamlayabildiğimizi göz önünde bulundurduğumuzda her hafta 63 puanı tamamlamamız gerektiğine karar verildi.
+- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 350 puanlık backlog bulunmaktadır. 6 sprint'e bölündüğünde ilk sprintte 35 puan tamamlayabildiğimizi göz önünde bulundurduğumuzda her hafta 63 puanı tamamlamamız gerektiğine karar verildi. Sprint planlamasında Fibonacci tekniği kullanmaya özen gösterilmesi kararlaştırıldı.
 
 - **Backlog düzeni ve Story seçimleri**: Backlog'umuz ilk yapılacak story'lere göre düzenlenmiştir. Sprint başına tahmin edilen puan sayısını geçmeyecek şekilde sıradan seçimler yapılmaktadır. Story başına çıkan tahmin puanı, toplam puanın yarısından az tutulmuştur.
 
 Story'ler yapılacak işlere (task'lere) bölünmüştür. Miro Board'da gözüken kırmızı item'lar yapılacak işleri (task) gösterirken, mavi item'lar story'leri temsil etmektedir.
 
-- **Daily Scrum**: Daily Scrum toplantılarının zamansal sebeplerden ötürü Discord üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg veya word olarak Readme'de tarafımızdan paylaşılmaktadır: [Sprint 1 Daily Scrum Chats] (https://drive.google.com/file/d/1Bpk0iuFC6lx8fHPXx1nLVix1sz9ZJ1-_/view?usp=sharing)
+- **Daily Scrum**: Daily Scrum toplantılarının zamansal sebeplerden ötürü Discord üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg veya word olarak Readme'de tarafımızdan paylaşılmaktadır:
+![Sprint 1 Daily Scrum](https://github.com/akademi-179/assets/blob/main/daily_scrum1.png)
+- **Sprint Meetings**
+![Sprint 1 Meetings](https://github.com/akademi-179/assets/blob/main/meetings_1.png)
 
 - **Sprint board update**: Sprint board screenshotları:
-![Backlog 1](https://drive.google.com/file/d/1boBPzpRLuTCrYJ8d03lbm8pFvMtyeavR/view?usp=sharing)
+![Backlog 1](https://github.com/akademi-179/assets/blob/main/backlogs_1.png)
 
 
-- **Ürün Durumu**: Ekran görüntüleri:
-  ![Screenshot 1](Bireysel olarak farklı ekranlar tasarladık ancak henüz bir araya getirmedik.)
-
+- **Ürün Durumu**: Bireysel olarak farklı ekranlar tasarladık ancak henüz bir araya getirmedik.
 
 - **Sprint Review**:
 Alınan kararlar: Toplantı sıklığının arttırılması kararlaştırıldı, bir sonraki sprintte daha fazla kod odaklı çalışma üzerinde karar kılındı. Firebase'daki örnek datanın test edilmesine karar verildi.
@@ -74,6 +75,7 @@ Sprint Review katılımcıları: Orçun Selbasan, Aysu Sarıkaya, Ece Saygut, Al
   - Takım içindeki görev dağılımıyla ilgili düzenleme yapılması kararı alınmıştır
   - Üzerinde çalışacağımız user storylerin sınırları kesin bir şekilde belirlenmeli.
   - Commit sayısı arttırılmalı.
+  - Daily Scrum'ın daha sık kullanılması kararlaştırıldı.
 
 -**Diğer Notlar**:
 - N/A
