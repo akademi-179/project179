@@ -23,7 +23,9 @@ class PlayerEntity {
   // past victories, MVP, ranks,
   List<PlayerRegistrationDate>?
       _playerRegistrationDates; // When is player registered to app, team, sponsor
-  List<Tournament>? _playerAttendeeOfTournaments; // List of tournaments that the player attended/attending
+  List<Tournament>?
+      _playerAttendeeOfTournaments; // List of tournaments that the player attended/attending
+  List<String>? _playerRoles;
 
   /// Constructor
   PlayerEntity(this._playerName, this._playerSurname, this._playerNickname,
@@ -34,7 +36,8 @@ class PlayerEntity {
       this._playerInterests,
       this._playerRegistrationDates,
       this._playerAchievements,
-      this._playerAttendeeOfTournaments]);
+      this._playerAttendeeOfTournaments,
+      this._playerRoles]);
 
   /// Getter and Setters
   List<PlayerRegistrationDate>? get playerRegistrationDates =>
@@ -98,9 +101,16 @@ class PlayerEntity {
     _playerAchievements = value;
   }
 
-  List<Tournament>? get playerAttendeeOfTournaments => _playerAttendeeOfTournaments;
+  List<Tournament>? get playerAttendeeOfTournaments =>
+      _playerAttendeeOfTournaments;
 
   set playerAttendeeOfTournaments(List<Tournament>? value) {
     _playerAttendeeOfTournaments = value;
+  }
+
+  List<String>? get playerRoles => _playerRoles;
+
+  set playerRoles(List<String>? value) {
+    _playerRoles = value;
   }
 }

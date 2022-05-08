@@ -1,16 +1,18 @@
+import 'package:project179/models/notice.dart';
+import 'package:project179/models/player/player.dart';
 import 'package:project179/models/post.dart';
 import 'package:project179/models/team/team_achievement.dart';
-import 'package:project179/models/team/team_history.dart';
-import 'package:project179/models/team/team_notice.dart';
 import 'package:project179/models/team/team_statistic.dart';
+import 'package:project179/models/tournament.dart';
 
 class TeamEntity {
   String _teamName;
   List<TeamStatistic>? _teamStatistics;
-  List<TeamHistory>? _teamHistory;
+  List<Tournament>? _teamHistory;
   List<TeamAchievement>? _teamAchievements;
-  List<TeamNotice>? _teamNotices;
+  List<Notice>? _teamNotices;
   List<PostEntity>? _teamPosts;
+  Map<String, PlayerEntity>? _teamRolesAndMembers;
   String? _teamSponsor;
   String? _teamLogoUrl;
   String? _teamBannerUrl;
@@ -24,7 +26,8 @@ class TeamEntity {
       this._teamPosts,
       this._teamSponsor,
       this._teamLogoUrl,
-      this._teamBannerUrl]);
+      this._teamBannerUrl,
+      this._teamRolesAndMembers]);
 
   /// Getter and Setters
   String? get teamBannerUrl => _teamBannerUrl;
@@ -51,9 +54,9 @@ class TeamEntity {
     _teamPosts = value;
   }
 
-  List<TeamNotice>? get teamNotices => _teamNotices;
+  List<Notice>? get teamNotices => _teamNotices;
 
-  set teamNotices(List<TeamNotice>? value) {
+  set teamNotices(List<Notice>? value) {
     _teamNotices = value;
   }
 
@@ -63,9 +66,9 @@ class TeamEntity {
     _teamAchievements = value;
   }
 
-  List<TeamHistory>? get teamHistory => _teamHistory;
+  List<Tournament>? get teamHistory => _teamHistory;
 
-  set teamHistory(List<TeamHistory>? value) {
+  set teamHistory(List<Tournament>? value) {
     _teamHistory = value;
   }
 
@@ -79,5 +82,11 @@ class TeamEntity {
 
   set teamName(String value) {
     _teamName = value;
+  }
+
+  Map<String, PlayerEntity>? get teamMembers => _teamRolesAndMembers;
+
+  set teamMembers(Map<String, PlayerEntity>? value) {
+    _teamRolesAndMembers = value;
   }
 }
