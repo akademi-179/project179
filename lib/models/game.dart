@@ -2,6 +2,7 @@ import 'package:project179/models/post.dart';
 
 class GameEntity {
   // TODO: Specify character limit for name,description
+  final String _gameOwnerID;
   String _gameName;
   String? _gameDescription;
   DateTime? _gameReleaseDate;
@@ -11,7 +12,7 @@ class GameEntity {
   List<PostEntity>? gamePosts;
 
   /// Constructor
-  GameEntity(this._gameName,
+  GameEntity(this._gameName, this._gameOwnerID,
       [this._gameDescription,
       this._gameReleaseDate,
       this._gameLastUpdateDate,
@@ -55,4 +56,6 @@ class GameEntity {
   set gameLogoUrl(String? value) {
     _gameLogoUrl = value;
   }
+
+  String get gameOwnerID => _gameOwnerID;
 }

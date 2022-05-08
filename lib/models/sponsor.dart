@@ -2,6 +2,7 @@ import 'package:project179/models/post.dart';
 
 class SponsorEntity {
   String _sponsorName;
+  final String _sponsorID;
   Map<dynamic, dynamic>? _sponsorNotices;
   List<PostEntity>? sponsorPosts;
   String? _sponsorLogoUrl;
@@ -9,7 +10,7 @@ class SponsorEntity {
   String? _sponsorDescription;
 
   /// Constructor
-  SponsorEntity(this._sponsorName,
+  SponsorEntity(this._sponsorID, this._sponsorName,
       [this._sponsorNotices,
       this.sponsorPosts,
       this._sponsorBannerUrl,
@@ -46,4 +47,6 @@ class SponsorEntity {
   set sponsorName(String value) {
     _sponsorName = value;
   }
+
+  String get sponsorID => _sponsorID;
 }

@@ -6,6 +6,7 @@ import 'package:project179/models/tournament.dart';
 
 class TeamEntity {
   String _teamName;
+  final String _teamID;
   List<TeamStatistic>? _teamStatistics;
   List<Tournament>? _teamHistory;
   List<Notice>? _teamNotices;
@@ -16,7 +17,7 @@ class TeamEntity {
   String? _teamBannerUrl;
 
   /// Constructor
-  TeamEntity(this._teamName,
+  TeamEntity(this._teamID, this._teamName,
       [this._teamStatistics,
       this._teamHistory,
       this._teamNotices,
@@ -80,4 +81,12 @@ class TeamEntity {
   set teamMembers(Map<String, PlayerEntity>? value) {
     _teamRolesAndMembers = value;
   }
+
+  Map<String, PlayerEntity>? get teamRolesAndMembers => _teamRolesAndMembers;
+
+  set teamRolesAndMembers(Map<String, PlayerEntity>? value) {
+    _teamRolesAndMembers = value;
+  }
+
+  String get teamID => _teamID;
 }
