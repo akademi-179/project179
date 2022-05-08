@@ -1,7 +1,6 @@
 import 'package:project179/models/notice.dart';
 import 'package:project179/models/player/player.dart';
 import 'package:project179/models/post.dart';
-import 'package:project179/models/team/team_achievement.dart';
 import 'package:project179/models/team/team_statistic.dart';
 import 'package:project179/models/tournament.dart';
 
@@ -9,7 +8,6 @@ class TeamEntity {
   String _teamName;
   List<TeamStatistic>? _teamStatistics;
   List<Tournament>? _teamHistory;
-  List<TeamAchievement>? _teamAchievements;
   List<Notice>? _teamNotices;
   List<PostEntity>? _teamPosts;
   Map<String, PlayerEntity>? _teamRolesAndMembers;
@@ -21,7 +19,6 @@ class TeamEntity {
   TeamEntity(this._teamName,
       [this._teamStatistics,
       this._teamHistory,
-      this._teamAchievements,
       this._teamNotices,
       this._teamPosts,
       this._teamSponsor,
@@ -58,12 +55,6 @@ class TeamEntity {
 
   set teamNotices(List<Notice>? value) {
     _teamNotices = value;
-  }
-
-  List<TeamAchievement>? get teamAchievements => _teamAchievements;
-
-  set teamAchievements(List<TeamAchievement>? value) {
-    _teamAchievements = value;
   }
 
   List<Tournament>? get teamHistory => _teamHistory;

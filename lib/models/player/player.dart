@@ -1,4 +1,3 @@
-import 'package:project179/models/player/player_achievement.dart';
 import 'package:project179/models/player/player_interest.dart';
 import 'package:project179/models/player/player_registration_date.dart';
 import 'package:project179/models/player/player_statistic.dart';
@@ -19,8 +18,6 @@ class PlayerEntity {
   List<PlayerInterest>?
       _playerInterests; // Interests can be updated, player can edit interests in
   // three types: Teams, Sponsors, Games
-  List<PlayerAchievement>? _playerAchievements; // Achievements can be updated,
-  // past victories, MVP, ranks,
   List<PlayerRegistrationDate>?
       _playerRegistrationDates; // When is player registered to app, team, sponsor
   List<Tournament>?
@@ -35,7 +32,6 @@ class PlayerEntity {
       this._playerStatistics,
       this._playerInterests,
       this._playerRegistrationDates,
-      this._playerAchievements,
       this._playerAttendeeOfTournaments,
       this._playerRoles]);
 
@@ -93,12 +89,6 @@ class PlayerEntity {
 
   set setPlayerName(final String value) {
     _playerName = value;
-  }
-
-  List<PlayerAchievement>? get playerAchievements => _playerAchievements;
-
-  set setPlayerAchievements(final List<PlayerAchievement> value) {
-    _playerAchievements = value;
   }
 
   List<Tournament>? get playerAttendeeOfTournaments =>
