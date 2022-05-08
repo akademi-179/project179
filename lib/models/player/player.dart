@@ -2,6 +2,7 @@ import 'package:project179/models/player/player_achievement.dart';
 import 'package:project179/models/player/player_interest.dart';
 import 'package:project179/models/player/player_registration_date.dart';
 import 'package:project179/models/player/player_statistic.dart';
+import 'package:project179/models/tournament.dart';
 
 class PlayerEntity {
   // TODO: Specify character limit name, nickname, surname,about
@@ -22,6 +23,7 @@ class PlayerEntity {
   // past victories, MVP, ranks,
   List<PlayerRegistrationDate>?
       _playerRegistrationDates; // When is player registered to app, team, sponsor
+  List<Tournament>? _playerAttendeeOfTournaments; // List of tournaments that the player attended/attending
 
   /// Constructor
   PlayerEntity(this._playerName, this._playerSurname, this._playerNickname,
@@ -31,7 +33,8 @@ class PlayerEntity {
       this._playerStatistics,
       this._playerInterests,
       this._playerRegistrationDates,
-      this._playerAchievements]);
+      this._playerAchievements,
+      this._playerAttendeeOfTournaments]);
 
   /// Getter and Setters
   List<PlayerRegistrationDate>? get playerRegistrationDates =>
@@ -89,9 +92,15 @@ class PlayerEntity {
     _playerName = value;
   }
 
-  List<PlayerAchievement>? get playerAchievements => playerAchievements;
+  List<PlayerAchievement>? get playerAchievements => _playerAchievements;
 
   set setPlayerAchievements(final List<PlayerAchievement> value) {
     _playerAchievements = value;
+  }
+
+  List<Tournament>? get playerAttendeeOfTournaments => _playerAttendeeOfTournaments;
+
+  set playerAttendeeOfTournaments(List<Tournament>? value) {
+    _playerAttendeeOfTournaments = value;
   }
 }
