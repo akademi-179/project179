@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:project179/screens/app_menu.dart';
 import 'package:project179/screens/games/games.dart';
-import 'package:project179/screens/player_profile/profile_edit.dart';
-import 'package:project179/screens/player_profile/profile_view.dart';
+import 'package:project179/screens/notices/notices_home.dart';
+import 'package:project179/screens/players/profile_edit.dart';
+import 'package:project179/screens/players/profile_view.dart';
 import 'package:project179/screens/sponsors/sponsors.dart';
-import 'package:project179/screens/team_profile/team_profile.dart';
+import 'package:project179/screens/teams/find_team.dart';
+import 'package:project179/screens/teams/my_teams.dart';
+import 'package:project179/screens/teams/teams_home.dart';
 import 'package:project179/screens/tournaments/tournaments.dart';
 import 'firebase_options.dart';
 
@@ -29,10 +32,13 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/app_menu': (context) => AppMenu(),
-          '/player_profile': (context) => ProfileView(),
-          '/player_profile/edit': (context) => ProfileEdit(),
-          '/team_profile': (context) => TeamProfile(),
+          '/players': (context) => ProfileView(),
+          '/players/edit': (context) => ProfileEdit(),
+          '/teams': (context) => TeamProfile(),
+          '/teams/my_teams': (context) => MyTeams(),
+          '/teams/find_team': (context) => FindTeam(),
           '/sponsors': (context) => Sponsors(),
+          '/notices': (context) => Notices(),
           '/games': (context) => Games(),
           '/tournaments': (context) => Tournaments(),
         },

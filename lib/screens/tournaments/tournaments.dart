@@ -11,6 +11,9 @@ class _TournamentsState extends State<Tournaments> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Tournaments"),
+      ),
       body: Center(
         child: Text("List of tournaments (attended/attending)"),
       ),

@@ -12,7 +12,7 @@ class _ProfileCreateState extends State<ProfileCreate> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text("Will be visible only at first register, it may use 3-4-step-slides to create user player_profile"),
+        child: Text("Will be visible only at first register, it may use 3-4-step-slides to create user players"),
       ),
     );
   }

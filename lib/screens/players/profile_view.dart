@@ -24,7 +24,7 @@ class _ProfileViewState extends State<ProfileView> {
             ),
           ),
           ElevatedButton(onPressed: () {
-            Navigator.pushNamed(context, '/player_profile/edit');
+            Navigator.pushNamed(context, '/players/edit');
           }, child: Text("Edit Profile"))
         ],
       ),

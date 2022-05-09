@@ -11,6 +11,9 @@ class _GamesState extends State<Games> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Games Page"),
+      ),
       body: Center(
         child: Text("Games page"),
       ),

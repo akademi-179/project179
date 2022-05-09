@@ -19,7 +19,7 @@ class _ProfileEditState extends State<ProfileEdit> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Text("Screen for player_profile edit"),
+            Text("Screen for players edit"),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

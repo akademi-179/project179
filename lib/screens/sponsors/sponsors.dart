@@ -11,6 +11,9 @@ class _SponsorsState extends State<Sponsors> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Sponsors"),
+      ),
       body: Center(
         child: Text("Sponsors"),
       ),
