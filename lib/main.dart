@@ -1,5 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:project179/screens/app_menu.dart';
+import 'package:project179/screens/games/games.dart';
+import 'package:project179/screens/notices/notices_home.dart';
+import 'package:project179/screens/players/profile_edit.dart';
+import 'package:project179/screens/players/profile_view.dart';
+import 'package:project179/screens/sponsors/sponsors.dart';
+import 'package:project179/screens/teams/find_team.dart';
+import 'package:project179/screens/teams/my_teams.dart';
+import 'package:project179/screens/teams/teams_home.dart';
+import 'package:project179/screens/tournaments/tournaments.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
@@ -19,6 +29,19 @@ class MyApp extends StatelessWidget {
           //
           primarySwatch: Colors.blue,
         ),
+        initialRoute: '/',
+        routes: {
+          '/app_menu': (context) => AppMenu(),
+          '/players': (context) => ProfileView(),
+          '/players/edit': (context) => ProfileEdit(),
+          '/teams': (context) => TeamProfile(),
+          '/teams/my_teams': (context) => MyTeams(),
+          '/teams/find_team': (context) => FindTeam(),
+          '/sponsors': (context) => Sponsors(),
+          '/notices': (context) => Notices(),
+          '/games': (context) => Games(),
+          '/tournaments': (context) => Tournaments(),
+        },
         home: FutureBuilder(
           future: _fbApp,
           builder: (context, snapshot) {
@@ -26,7 +49,9 @@ class MyApp extends StatelessWidget {
               print('You have an error! ${snapshot.error.toString()}');
               return Text('Something went wrong! ${snapshot.error}');
             } else if (snapshot.hasData) {
-              return MyHomePage(title: 'Flutter Demo Home Page', data: snapshot.data.toString());
+              return MyHomePage(
+                  title: 'Flutter Demo Home Page',
+                  data: snapshot.data.toString());
             } else {
               return const Center(
                 child: CircularProgressIndicator(),
@@ -38,7 +63,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title, required this.data}) : super(key: key);
+  const MyHomePage({Key? key, required this.title, required this.data})
+      : super(key: key);
 
   final String title;
   final String data;
@@ -77,6 +103,12 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            Text("Auth or Not Auth user will be directed to App Menu"),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/app_menu');
+                },
+                child: Text("App Menu")),
           ],
         ),
       ),
