@@ -11,29 +11,61 @@ class AppMenu extends StatefulWidget {
 class _AppMenuState extends State<AppMenu> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("App Menu"),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            children: [
-              Center(
-                child: Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: AppMenuRouteButtons(),
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              children: const [
+                Center(
+                  child: Padding(
+                    padding: EdgeInsets.all(20.0),
+                    child: AppMenuRouteButtons(),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            )
+          ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          tooltip: "Click",
+          child: const Icon(Icons.home_filled),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: BottomAppBar(
+          shape: CircularNotchedRectangle(),
+          color: Colors.blue,
+          child: IconTheme(
+            data: IconThemeData(color: Theme
+                .of(context)
+                .colorScheme
+                .onPrimary),
+            child: Row(
+              children: [
+                IconButton(
+                  tooltip: 'Open navigation menu',
+                  icon: const Icon(Icons.menu),
+                  onPressed: () {},
+                ),
+                const Spacer(),
+                IconButton(
+                  tooltip: 'Search',
+                  icon: const Icon(Icons.search),
+                  onPressed: () {},
+                ),
+                IconButton(
+                  tooltip: 'Favorite',
+                  icon: const Icon(Icons.logout),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
+            ),
           ),
-          ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text("Logout"))
-        ],
+        ),
       ),
     );
   }

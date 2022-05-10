@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project179/widgets/Misc/on_back_pressed.dart';
 
 class ProfileEdit extends StatefulWidget {
   const ProfileEdit({Key? key}) : super(key: key);
@@ -11,7 +12,7 @@ class _ProfileEditState extends State<ProfileEdit> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: (() => _onBackPressed(context)) as Future<bool> Function(),
+      onWillPop: (() => OnBackPressed.onBackPressed(context, "title", "content", "cancel", "Ok")) as Future<bool> Function(),
       child: Scaffold(
         appBar: AppBar(
           title: Text("Profile Edit"),
@@ -47,21 +48,4 @@ class _ProfileEditState extends State<ProfileEdit> {
       ),
     );
   }
-}
-
-Future<bool> _onBackPressed(BuildContext context) async {
-  return (await showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-            title: Text("AlertDialog"),
-            content: Text("Do you wish to go back? You will lose all changes."),
-            actions: [
-              TextButton(
-                  onPressed: () => Navigator.of(context).pop(true),
-                  child: Text("Ok")),
-              TextButton(
-                  onPressed: () => Navigator.of(context).pop(false),
-                  child: Text("Cancel"))
-            ],
-          )));
 }
