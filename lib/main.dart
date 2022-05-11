@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:project179/screens/app_menu.dart';
 import 'package:project179/screens/games/games.dart';
+import 'package:project179/screens/intro_page.dart';
 import 'package:project179/screens/notices/notices_home.dart';
 import 'package:project179/screens/players/profile_edit.dart';
 import 'package:project179/screens/players/profile_view.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         routes: {
+          '/screens/intro_page.dart': (context) => IntroPage(),
           '/app_menu': (context) => AppMenu(),
           '/players': (context) => ProfileView(),
           '/players/edit': (context) => ProfileEdit(),
@@ -105,10 +107,16 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text("Auth or Not Auth user will be directed to App Menu"),
             ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/app_menu');
+              },
+              child: Text("App Page"),
+            ),
+            ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/app_menu');
+                  Navigator.pushNamed(context, '/screens/intro_page.dart');
                 },
-                child: Text("App Menu")),
+                child: Text("Intro Menu")),
           ],
         ),
       ),
