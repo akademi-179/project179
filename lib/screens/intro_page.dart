@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project179/main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class IntroPage extends StatefulWidget {
@@ -11,6 +12,7 @@ class IntroPage extends StatefulWidget {
 
 class _IntroPageState extends State<IntroPage> {
   final introController = PageController(initialPage: 0);
+  bool sonSayfa = false;
   @override
   void dispose() {
     introController.dispose();
@@ -24,6 +26,9 @@ class _IntroPageState extends State<IntroPage> {
         padding: const EdgeInsets.only(bottom: 100),
         child: PageView(
           controller: introController,
+          onPageChanged: (index) {
+            setState(() => sonSayfa = (index) == 2);
+          },
           children: [
             singlePage(
                 backgroundColor: Colors.blueAccent,
@@ -32,13 +37,13 @@ class _IntroPageState extends State<IntroPage> {
                 richText:
                     'Amatör veya Profesyonel fark etmeksizin bütün e-sporcular için çeşitli kariyer imkanları.'),
             singlePage(
-                backgroundColor: Colors.purple,
+                backgroundColor: Colors.orange,
                 imgUrl: 'assets/images/akademi.png',
                 pageTitle: 'Takımlar ve Sponsorlar',
                 richText:
-                    'Bir takım oluşturabilir ya da katılabilir, sponsorlarla anlaşma sağlayabilirsin.'),
+                    'Bir takım oluşturabilir ya da mevcut bir takıma katılabilir, sponsorlarla anlaşma sağlayabilirsin.'),
             singlePage(
-                backgroundColor: Colors.deepPurple,
+                backgroundColor: Colors.blueGrey,
                 imgUrl: 'assets/images/akademi.png',
                 pageTitle: 'Profiller ve Sosyalleşme',
                 richText:
@@ -46,50 +51,75 @@ class _IntroPageState extends State<IntroPage> {
           ],
         ),
       ),
-      bottomSheet: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        height: 100,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            TextButton(
-                onPressed: () {
-                  introController.jumpToPage(2);
-                },
-                child: const Text(
-                  'ATLA...',
-                )),
-            Center(
-              child: SmoothPageIndicator(
-                controller: introController,
-                count: 3,
-                effect: ExpandingDotsEffect(
-                    spacing: 15,
-                    dotColor: Colors.black,
-                    activeDotColor: Colors.amber),
-                onDotClicked: (index) => introController.animateToPage(index,
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeIn),
+      bottomSheet: sonSayfa
+          ? TextButton(
+              style: TextButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(0),
+                  ),
+                  primary: Colors.black,
+                  backgroundColor: Colors.blue,
+                  minimumSize: const Size.fromHeight(100)),
+              onPressed: () async {
+                final tercihler = await SharedPreferences.getInstance();
+                tercihler.setBool('gitAnaSayfa', true);
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => MyHomePage(
+                        title: 'Flutter Demo Home Page', data: 'Test')));
+              },
+              child: Text(
+                'BAŞLA !',
+                style: TextStyle(fontSize: 24),
+              ))
+          : Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              height: 100,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  TextButton(
+                      onPressed: () {
+                        introController.jumpToPage(2);
+                      },
+                      child: const Text(
+                        'ATLA...',
+                        textAlign: TextAlign.center,
+                      )),
+                  Center(
+                    child: SmoothPageIndicator(
+                      controller: introController,
+                      count: 3,
+                      effect: ExpandingDotsEffect(
+                          spacing: 15,
+                          dotColor: Colors.black,
+                          activeDotColor: Colors.amber),
+                      onDotClicked: (index) => introController.animateToPage(
+                          index,
+                          duration: const Duration(milliseconds: 300),
+                          curve: Curves.easeIn),
+                    ),
+                  ),
+                  TextButton(
+                      onPressed: () {
+                        introController.nextPage(
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.easeInOut);
+                      },
+                      child: const Text(
+                        'DEVAM ET',
+                        textAlign: TextAlign.center,
+                      ))
+                ],
               ),
             ),
-            TextButton(
-                onPressed: () {
-                  introController.nextPage(
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.easeInOut);
-                },
-                child: const Text('DEVAM ET'))
-          ],
-        ),
-      ),
     );
   }
 
   Widget singlePage({
-    required Color backgroundColor,
-    required String imgUrl,
-    required String pageTitle,
-    required String richText,
+    required final Color backgroundColor,
+    required final String imgUrl,
+    required final String pageTitle,
+    required final String richText,
   }) =>
       Container(
         color: backgroundColor,
@@ -106,23 +136,21 @@ class _IntroPageState extends State<IntroPage> {
             ),
             Text(
               pageTitle,
-              style: TextStyle(
+              textAlign: TextAlign.center,
+              style: const TextStyle(
                   color: Colors.black,
                   fontSize: 32,
                   fontWeight: FontWeight.bold),
             ),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 50),
+              padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
               child: Text(
                 richText,
-                style: const TextStyle(color: Colors.black),
+                textAlign: TextAlign.center,
+                style: const TextStyle(color: Colors.black, fontSize: 16),
               ),
-            )
+            ),
           ],
         ),
       );
 }
-
-// TODO Kendime not 
-//https://www.youtube.com/watch?v=AmsXazhGMQ0
-// 2:15'te kaldım

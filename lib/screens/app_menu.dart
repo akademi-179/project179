@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:project179/screens/intro_page.dart';
 import 'package:project179/widgets/app_menu/app_menu_route_buttons.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AppMenu extends StatefulWidget {
   const AppMenu({Key? key}) : super(key: key);
@@ -38,10 +40,7 @@ class _AppMenuState extends State<AppMenu> {
           shape: CircularNotchedRectangle(),
           color: Colors.blue,
           child: IconTheme(
-            data: IconThemeData(color: Theme
-                .of(context)
-                .colorScheme
-                .onPrimary),
+            data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
             child: Row(
               children: [
                 IconButton(
@@ -58,8 +57,11 @@ class _AppMenuState extends State<AppMenu> {
                 IconButton(
                   tooltip: 'Favorite',
                   icon: const Icon(Icons.logout),
-                  onPressed: () {
-                    Navigator.pop(context);
+                  onPressed: () async {
+                    final tercihler = await SharedPreferences.getInstance();
+                    tercihler.setBool('gitAnaSayfa', true);
+                    Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => IntroPage()));
                   },
                 ),
               ],

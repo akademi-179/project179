@@ -12,15 +12,24 @@ import 'package:project179/screens/teams/my_teams.dart';
 import 'package:project179/screens/teams/teams_home.dart';
 import 'package:project179/screens/tournaments/tournaments.dart';
 import 'firebase_options.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(MyApp());
+  final tercihler = await SharedPreferences.getInstance();
+  final gitAnaSayfa = tercihler.getBool('gitAnasayfa') ?? false;
+  runApp(MyApp(gitAnaSayfa: gitAnaSayfa));
 }
 
 class MyApp extends StatelessWidget {
   final Future<FirebaseApp> _fbApp = Firebase.initializeApp();
+  final bool gitAnaSayfa;
+
+  MyApp({
+    Key? key,
+    required this.gitAnaSayfa,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,23 +53,25 @@ class MyApp extends StatelessWidget {
           '/games': (context) => Games(),
           '/tournaments': (context) => Tournaments(),
         },
-        home: FutureBuilder(
-          future: _fbApp,
-          builder: (context, snapshot) {
-            if (snapshot.hasError) {
-              print('You have an error! ${snapshot.error.toString()}');
-              return Text('Something went wrong! ${snapshot.error}');
-            } else if (snapshot.hasData) {
-              return MyHomePage(
-                  title: 'Flutter Demo Home Page',
-                  data: snapshot.data.toString());
-            } else {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-          },
-        ));
+        home: gitAnaSayfa
+            ? FutureBuilder(
+                future: _fbApp,
+                builder: (context, snapshot) {
+                  if (snapshot.hasError) {
+                    print('You have an error! ${snapshot.error.toString()}');
+                    return Text('Something went wrong! ${snapshot.error}');
+                  } else if (snapshot.hasData) {
+                    return MyHomePage(
+                        title: 'Flutter Demo Home Page',
+                        data: snapshot.data.toString());
+                  } else {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                },
+              )
+            : IntroPage());
   }
 }
 
