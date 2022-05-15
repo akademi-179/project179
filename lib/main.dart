@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:project179/screens/app_menu.dart';
+import 'package:project179/screens/games/game.dart';
 import 'package:project179/screens/games/games.dart';
 import 'package:project179/screens/notices/notices_home.dart';
 import 'package:project179/screens/players/profile_edit.dart';
@@ -10,6 +11,8 @@ import 'package:project179/screens/teams/find_team.dart';
 import 'package:project179/screens/teams/my_teams.dart';
 import 'package:project179/screens/teams/teams_home.dart';
 import 'package:project179/screens/tournaments/tournaments.dart';
+import 'package:project179/view_model/games_view_model.dart';
+import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
@@ -22,48 +25,56 @@ class MyApp extends StatelessWidget {
   final Future<FirebaseApp> _fbApp = Firebase.initializeApp();
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          //
-          primarySwatch: Colors.blue,
+  Widget build(final BuildContext context) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<GameViewModel>(
+          create: (final BuildContext context) => GameViewModel(),
         ),
-        initialRoute: '/',
-        routes: {
-          '/app_menu': (context) => AppMenu(),
-          '/players': (context) => ProfileView(),
-          '/players/edit': (context) => ProfileEdit(),
-          '/teams': (context) => TeamProfile(),
-          '/teams/my_teams': (context) => MyTeams(),
-          '/teams/find_team': (context) => FindTeam(),
-          '/sponsors': (context) => Sponsors(),
-          '/notices': (context) => Notices(),
-          '/games': (context) => Games(),
-          '/tournaments': (context) => Tournaments(),
-        },
-        home: FutureBuilder(
-          future: _fbApp,
-          builder: (context, snapshot) {
-            if (snapshot.hasError) {
-              print('You have an error! ${snapshot.error.toString()}');
-              return Text('Something went wrong! ${snapshot.error}');
-            } else if (snapshot.hasData) {
-              return MyHomePage(
-                  title: 'Flutter Demo Home Page',
-                  data: snapshot.data.toString());
-            } else {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
+      ],
+      child: MaterialApp(
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            fontFamily: "SanFrancisco",
+            primarySwatch: Colors.blue,
+          ),
+          initialRoute: '/',
+          routes: {
+            '/app_menu': (final context) => AppMenu(),
+            '/players': (final context) => ProfileView(),
+            '/players/edit': (final context) => ProfileEdit(),
+            '/teams': (final context) => TeamProfile(),
+            '/teams/my_teams': (final context) => MyTeams(),
+            '/teams/find_team': (final context) => FindTeam(),
+            '/sponsors': (final context) => Sponsors(),
+            '/notices': (final context) => Notices(),
+            '/games': (final context) => Games(),
+            '/games/game': (final context) => Game(game: null,),
+            '/tournaments': (final context) => Tournaments(),
           },
-        ));
+          home: FutureBuilder(
+            future: _fbApp,
+            builder: (final context, final snapshot) {
+              if (snapshot.hasError) {
+                print('You have an error! ${snapshot.error.toString()}');
+                return Text('Something went wrong! ${snapshot.error}');
+              } else if (snapshot.hasData) {
+                return MyHomePage(
+                    title: 'Flutter Demo Home Page',
+                    data: snapshot.data.toString());
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )),
+    );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title, required this.data})
+  const MyHomePage({final Key? key, required this.title, required this.data})
       : super(key: key);
 
   final String title;
@@ -83,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     //
     return Scaffold(
       appBar: AppBar(
@@ -103,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
-            Text("Auth or Not Auth user will be directed to App Menu"),
+            const Text("Auth or Not Auth user will be directed to App Menu"),
             ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/app_menu');

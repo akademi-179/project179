@@ -6,7 +6,7 @@ class Notice {
   final String _noticeUserID;
   SponsorEntity? noticeOfSponsor;
   TeamEntity? noticeOfTeam;
-  GameEntity? noticeForGame;
+  // GameEntity? noticeForGame;
   DateTime? noticeDueDate;
   String? noticeRole;
   Map<String, dynamic>?
@@ -16,7 +16,7 @@ class Notice {
   Notice(this._noticeUserID,
       [this.noticeOfSponsor,
       this.noticeOfTeam,
-      this.noticeForGame,
+      // this.noticeForGame,
       this.noticeDueDate,
       this.noticeRole,
       this.noticeRank,
