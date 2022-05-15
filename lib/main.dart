@@ -36,9 +36,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
-          //
-          primarySwatch: Colors.blue,
-        ),
+            //
+            primarySwatch: Colors.blue,
+            dividerColor: Colors.black),
         initialRoute: '/',
         routes: {
           '/screens/intro_page.dart': (context) => IntroPage(),
