@@ -81,5 +81,49 @@ Sprint Review katılımcıları: Orçun Selbasan, Aysu Sarıkaya, Ece Saygut, Al
 - N/A
 
 # Sprint 2
+- **Sprint Notları**: 
+
+- **Sprint içinde tamamlanması tahmin edilen puan**: 
+- **Sprint içinde tamamladığımız puan**: 
+
+- **Puan tamamlama mantığı**: 
+
+- **Backlog düzeni ve Story seçimleri**:
+
+- **Daily Scrum**: 
+- **Sprint Meetings**
+
+- **Sprint board update**:
+
+- **Ürün Durumu**: 
+
+- **Sprint Review**:
+
+- **Sprint Retrospective:**
+
+-**Diğer Notlar**:
+- 
 
 # Sprint 3
+- **Sprint Notları**: 
+
+- **Sprint içinde tamamlanması tahmin edilen puan**: 
+- **Sprint içinde tamamladığımız puan**: 
+
+- **Puan tamamlama mantığı**: 
+
+- **Backlog düzeni ve Story seçimleri**:
+
+- **Daily Scrum**: 
+- **Sprint Meetings**
+
+- **Sprint board update**:
+
+- **Ürün Durumu**: 
+
+- **Sprint Review**:
+
+- **Sprint Retrospective:**
+
+-**Diğer Notlar**:
+- 
