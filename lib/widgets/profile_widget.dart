@@ -4,9 +4,13 @@ import 'package:flutter/material.dart';
 class ProfileWidget extends StatelessWidget {
   final String imagePath;
   final VoidCallback onClicked;
+  final bool isEdit;
 
   const ProfileWidget(
-      {Key? key, required this.imagePath, required this.onClicked})
+      {Key? key,
+      required this.imagePath,
+      required this.onClicked,
+      this.isEdit = false})
       : super(key: key);
 
   @override
@@ -46,7 +50,7 @@ class ProfileWidget extends StatelessWidget {
             Color: Colors.amber,
             all: 8,
             child: Icon(
-              Icons.edit,
+              isEdit ? Icons.add_a_photo : Icons.edit,
               size: 20,
               color: Colors.white,
             )),

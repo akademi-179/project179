@@ -24,6 +24,7 @@ class _ProfileViewState extends State<ProfileView> {
       body: ListView(
         physics: BouncingScrollPhysics(),
         children: [
+          const SizedBox(height: 24),
           ProfileWidget(imagePath: player.imagePath, onClicked: () async {}),
           const SizedBox(height: 24),
           buildName(player)
