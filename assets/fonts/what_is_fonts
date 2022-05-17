@@ -1,5 +1,0 @@
-Although Android and iOS offer high quality system fonts, one of the most common requests from designers is for custom fonts.
-Flutter supports the following font formats:
-    - .ttf
-    - .otf
-https://docs.flutter.dev/cookbook/design/fonts

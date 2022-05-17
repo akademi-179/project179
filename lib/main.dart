@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:project179/screens/app_menu.dart';
+import 'package:project179/screens/games/game.dart';
 import 'package:project179/screens/games/games.dart';
 import 'package:project179/screens/intro_page.dart';
 import 'package:project179/screens/notices/notices_home.dart';
@@ -11,6 +12,8 @@ import 'package:project179/screens/teams/find_team.dart';
 import 'package:project179/screens/teams/my_teams.dart';
 import 'package:project179/screens/teams/teams_home.dart';
 import 'package:project179/screens/tournaments/tournaments.dart';
+import 'package:project179/view_model/games_view_model.dart';
+import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -32,30 +35,37 @@ class MyApp extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Flutter Demo',
-        debugShowCheckedModeBanner: false,
-        // TODO: Don't forget to remove it before releasing the app.
-        theme: ThemeData(
-            //
+  Widget build(final BuildContext context) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<GameViewModel>(
+          create: (final BuildContext context) => GameViewModel(),
+        ),
+      ],
+      child: MaterialApp(
+          title: 'Flutter Demo',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            fontFamily: "SanFrancisco",
             primarySwatch: Colors.blue,
-            dividerColor: Colors.black),
-        initialRoute: '/',
-        routes: {
-          '/screens/intro_page.dart': (context) => IntroPage(),
-          '/app_menu': (context) => AppMenu(),
-          '/players': (context) => ProfileView(),
-          '/players/edit': (context) => ProfileEdit(),
-          '/teams': (context) => TeamProfile(),
-          '/teams/my_teams': (context) => MyTeams(),
-          '/teams/find_team': (context) => FindTeam(),
-          '/sponsors': (context) => Sponsors(),
-          '/notices': (context) => Notices(),
-          '/games': (context) => Games(),
-          '/tournaments': (context) => Tournaments(),
-        },
-        home: gitAnaSayfa
+            dividerColor: Colors.black,
+          ),
+          initialRoute: '/',
+          routes: {
+            '/screens/intro_page.dart': (context) => IntroPage(),
+            '/app_menu': (final context) => AppMenu(),
+            '/players': (final context) => ProfileView(),
+            '/players/edit': (final context) => ProfileEdit(),
+            '/teams': (final context) => TeamProfile(),
+            '/teams/my_teams': (final context) => MyTeams(),
+            '/teams/find_team': (final context) => FindTeam(),
+            '/sponsors': (final context) => Sponsors(),
+            '/notices': (final context) => Notices(),
+            '/games': (final context) => Games(),
+            '/games/game': (final context) => Game(game: null,),
+            '/tournaments': (final context) => Tournaments(),
+          },
+          home: gitAnaSayfa
             ? FutureBuilder(
                 future: _fbApp,
                 builder: (context, snapshot) {
@@ -73,12 +83,14 @@ class MyApp extends StatelessWidget {
                   }
                 },
               )
-            : IntroPage());
+            : IntroPage()
+      ),
+    );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title, required this.data})
+  const MyHomePage({final Key? key, required this.title, required this.data})
       : super(key: key);
 
   final String title;
@@ -98,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     //
     return Scaffold(
       appBar: AppBar(
@@ -118,7 +130,7 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
-            Text("Auth or Not Auth user will be directed to App Menu"),
+            const Text("Auth or Not Auth user will be directed to App Menu"),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/app_menu');
