@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:project179/screens/app_menu.dart';
 import 'package:project179/screens/games/game.dart';
 import 'package:project179/screens/games/games.dart';
+import 'package:project179/screens/intro_page.dart';
 import 'package:project179/screens/notices/notices_home.dart';
 import 'package:project179/screens/players/profile_edit.dart';
 import 'package:project179/screens/players/profile_view.dart';
@@ -14,15 +15,24 @@ import 'package:project179/screens/tournaments/tournaments.dart';
 import 'package:project179/view_model/games_view_model.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(MyApp());
+  final introTercihler = await SharedPreferences.getInstance();
+  final gitAnaSayfa = introTercihler.getBool('gitAnasayfa') ?? false;
+  runApp(MyApp(gitAnaSayfa: gitAnaSayfa));
 }
 
 class MyApp extends StatelessWidget {
   final Future<FirebaseApp> _fbApp = Firebase.initializeApp();
+  final bool gitAnaSayfa;
+
+  MyApp({
+    Key? key,
+    required this.gitAnaSayfa,
+  }) : super(key: key);
 
   @override
   Widget build(final BuildContext context) {
@@ -34,12 +44,15 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
           title: 'Flutter Demo',
+          debugShowCheckedModeBanner: false,
           theme: ThemeData(
             fontFamily: "SanFrancisco",
             primarySwatch: Colors.blue,
+            dividerColor: Colors.black,
           ),
           initialRoute: '/',
           routes: {
+            '/screens/intro_page.dart': (context) => IntroPage(),
             '/app_menu': (final context) => AppMenu(),
             '/players': (final context) => ProfileView(),
             '/players/edit': (final context) => ProfileEdit(),
@@ -52,23 +65,26 @@ class MyApp extends StatelessWidget {
             '/games/game': (final context) => Game(game: null,),
             '/tournaments': (final context) => Tournaments(),
           },
-          home: FutureBuilder(
-            future: _fbApp,
-            builder: (final context, final snapshot) {
-              if (snapshot.hasError) {
-                print('You have an error! ${snapshot.error.toString()}');
-                return Text('Something went wrong! ${snapshot.error}');
-              } else if (snapshot.hasData) {
-                return MyHomePage(
-                    title: 'Flutter Demo Home Page',
-                    data: snapshot.data.toString());
-              } else {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-            },
-          )),
+          home: gitAnaSayfa
+            ? FutureBuilder(
+                future: _fbApp,
+                builder: (context, snapshot) {
+                  if (snapshot.hasError) {
+                    print('You have an error! ${snapshot.error.toString()}');
+                    return Text('Something went wrong! ${snapshot.error}');
+                  } else if (snapshot.hasData) {
+                    return MyHomePage(
+                        title: 'Flutter Demo Home Page',
+                        data: snapshot.data.toString());
+                  } else {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                },
+              )
+            : IntroPage()
+      ),
     );
   }
 }
@@ -116,10 +132,16 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             const Text("Auth or Not Auth user will be directed to App Menu"),
             ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/app_menu');
+              },
+              child: Text("App Page"),
+            ),
+            ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/app_menu');
+                  Navigator.pushNamed(context, '/screens/intro_page.dart');
                 },
-                child: Text("App Menu")),
+                child: Text("Intro Menu")),
           ],
         ),
       ),

@@ -3,6 +3,23 @@ import 'package:project179/models/player/player_registration_date.dart';
 import 'package:project179/models/player/player_statistic.dart';
 import 'package:project179/models/tournament.dart';
 
+// TO DO: Firebase authenticate sonrası TestUser Class'ı kaldırılacak ve profile_view.dart'ta düzenleme yapılacak.
+class TestUser {
+  final String imagePath;
+  final String nickname;
+  final String name;
+  final String email;
+  final String about;
+
+  const TestUser({
+    required this.nickname,
+    required this.imagePath,
+    required this.name,
+    required this.email,
+    required this.about,
+  });
+}
+
 class PlayerEntity {
   // TODO: Specify character limit name, nickname, surname,about
   String _playerName; // Name can be changed
