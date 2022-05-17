@@ -17,8 +17,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  final tercihler = await SharedPreferences.getInstance();
-  final gitAnaSayfa = tercihler.getBool('gitAnasayfa') ?? false;
+  final introTercihler = await SharedPreferences.getInstance();
+  final gitAnaSayfa = introTercihler.getBool('gitAnasayfa') ?? false;
   runApp(MyApp(gitAnaSayfa: gitAnaSayfa));
 }
 
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
-        // TO DO: Don't forget to remove it before releasing the app.
+        // TODO: Don't forget to remove it before releasing the app.
         theme: ThemeData(
             //
             primarySwatch: Colors.blue,

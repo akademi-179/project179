@@ -61,8 +61,8 @@ class _IntroPageState extends State<IntroPage> {
                   backgroundColor: Colors.blue,
                   minimumSize: const Size.fromHeight(100)),
               onPressed: () async {
-                final tercihler = await SharedPreferences.getInstance();
-                tercihler.setBool('gitAnaSayfa', true);
+                final introTercihler = await SharedPreferences.getInstance();
+                introTercihler.setBool('gitAnaSayfa', true);
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) => MyHomePage(
                         title: 'Flutter Demo Home Page', data: 'Test')));
