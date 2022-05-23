@@ -104,7 +104,7 @@ Sprint Review katılımcıları: Orçun Selbasan, Aysu Sarıkaya, Ece Saygut, Al
 ![Screenshot_1653328503](https://user-images.githubusercontent.com/67058472/169878908-34b37573-617f-4d6f-93de-8e2d5e29e811.png)
 
 - **Sprint Review**:
-Alınan kararlar: Bir sonraki sprintte proje icantsleep mesajlaşma uygulamasıyla değiştirilecek ve ana hedefimiz çalışan prototip çıkarmak olacak.
+Alınan kararlar: Bir sonraki sprintte proje [icantsleep mesajlaşma uygulamasıyla](https://github.com/akademi-179/icantsleep) değiştirilecek ve ana hedefimiz çalışan prototip çıkarmak olacak.
 
 Sprint Review katılımcıları: Orçun Selbasan, Aysu Sarıkaya, Ece Saygut, Alper Gökçe Acar
 - **Sprint Retrospective:**
@@ -113,7 +113,7 @@ Sprint Review katılımcıları: Orçun Selbasan, Aysu Sarıkaya, Ece Saygut, Al
   - Herkesin koda katkı yapması gerektiği kararlaştırıldı. 
 
 -**Diğer Notlar**:
-- 
+- ### 3. sprintte teslim edeceğimiz projeyi icantsleep mesajlaşma uygulaması ile değiştirmeye karar verdik.
 
 # Sprint 3
 - **Sprint Notları**: 
