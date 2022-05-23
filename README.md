@@ -81,25 +81,36 @@ Sprint Review katılımcıları: Orçun Selbasan, Aysu Sarıkaya, Ece Saygut, Al
 - N/A
 
 # Sprint 2
-- **Sprint Notları**: 
 
-- **Sprint içinde tamamlanması tahmin edilen puan**: 
-- **Sprint içinde tamamladığımız puan**: 
+- **Sprint içinde tamamlanması tahmin edilen puan**: 117
+- **Sprint içinde tamamladığımız puan**: 44
 
-- **Puan tamamlama mantığı**: 
+- **Puan tamamlama mantığı**: İlk hafta 57puan, ikinci hafta 60 puan olacak şekilde tamamlanılmasına karar verildi
 
-- **Backlog düzeni ve Story seçimleri**:
+- **Backlog düzeni ve Story seçimleri**: Kalan sprintlerde yapılması planlanılan görevler Kanban tahtasına eklendi
 
 - **Daily Scrum**: 
-- **Sprint Meetings**
+![daily1](https://user-images.githubusercontent.com/67058472/169878245-c6279fbd-e582-4edc-867c-2a472d965599.png)
+![daily2](https://user-images.githubusercontent.com/67058472/169878250-a3173ce4-5ad1-4844-b09e-434f16eeb1b2.png)
 
 - **Sprint board update**:
+![board](https://user-images.githubusercontent.com/67058472/169878403-f2517afa-a973-4315-8d19-0ae96bd800ee.png)
 
 - **Ürün Durumu**: 
+![Screenshot_1653328454](https://user-images.githubusercontent.com/67058472/169878886-e3ac4cb2-0c39-404b-8ca6-d314fe6a0f96.png)
+![Screenshot_1653328466](https://user-images.githubusercontent.com/67058472/169878888-f9e416a3-ea8f-4932-bd1a-f3d0115d9f42.png)
+![Screenshot_1653328470](https://user-images.githubusercontent.com/67058472/169878892-e92c6a22-e4bc-482b-850f-151145bed719.png)
+![Screenshot_1653328488](https://user-images.githubusercontent.com/67058472/169878902-9afe35c8-5b45-4540-b7cb-7f2f3953c6cd.png)
+![Screenshot_1653328503](https://user-images.githubusercontent.com/67058472/169878908-34b37573-617f-4d6f-93de-8e2d5e29e811.png)
 
 - **Sprint Review**:
+Alınan kararlar: Bir sonraki sprintte proje icantsleep mesajlaşma uygulamasıyla değiştirilecek ve ana hedefimiz çalışan prototip çıkarmak olacak.
 
+Sprint Review katılımcıları: Orçun Selbasan, Aysu Sarıkaya, Ece Saygut, Alper Gökçe Acar
 - **Sprint Retrospective:**
+  - Blockerlar hesaba katılarak eklenecek içeriklerin kapsamının az ve öz olması gerektiğine karar verildi.
+  - Daily Scrum'ın kullanılması vurgulandı.
+  - Herkesin koda katkı yapması gerektiği kararlaştırıldı. 
 
 -**Diğer Notlar**:
 - 
